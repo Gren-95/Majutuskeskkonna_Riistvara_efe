@@ -1,0 +1,4 @@
+- name: Update repositories cache and install "foo" package
+  apt:
+    name: docker.io
+    update_cache: yes
