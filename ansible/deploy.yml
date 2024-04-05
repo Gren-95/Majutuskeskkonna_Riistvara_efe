@@ -8,9 +8,7 @@
   #- update
   - docker
 
-
-
-  - name: 1st conf
+  - name: 2nd conf
   hosts: portainer
   become: yes
   vars_files:

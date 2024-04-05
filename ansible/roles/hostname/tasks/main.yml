@@ -1,4 +1,0 @@
-    - name: Template a file to hostname
-      ansible.builtin.template:
-        src: templates/hostname.j2
-        dest: /etc/hostname
