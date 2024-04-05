@@ -2,25 +2,16 @@
   hosts: all
   become: yes
   vars_files:
-  - vars/variables.yml
+    - vars/variables.yml
   gather_facts: yes
   roles:
-  #- update
-  - docker
+    - docker
 
-
-
-  - name: 1st conf
+- name: 2nd conf
   hosts: portainer
   become: yes
   vars_files:
-  - vars/variables.yml
+    - vars/variables.yml
   gather_facts: yes
   roles:
-  #- update
-  #- docker
-  #- netplan
-  #- hostname
-  - portainer
-
-    
+    - portainer
