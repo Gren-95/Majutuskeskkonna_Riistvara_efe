@@ -1,13 +1,27 @@
-- name: Create portainer container
+- name: Ensure Python pip is installed
+  apt:
+    name: python3-pip
+    state: present
+
+- name: Install Docker SDK for Python
+  pip:
+    name: docker
+    state: present
+    executable: pip3
+
+- name: Create Portainer volume
+  docker_volume:
+    name: portainer_data
+
+- name: Run Portainer container
   docker_container:
     name: portainer
     image: portainer/portainer-ce
     state: started
-    recreate: yes
     restart_policy: always
-    published_ports:
-      - "8000:8000"
+    ports:
       - "9000:9000"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+

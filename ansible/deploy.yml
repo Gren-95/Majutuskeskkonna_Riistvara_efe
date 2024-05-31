@@ -1,17 +1,8 @@
-- name: 1st conf
+- name: Install Docker & Portainer
   hosts: all
   become: yes
-  vars_files:
-    - vars/variables.yml
-  gather_facts: yes
+  gather_facts: y    
   roles:
     - docker
-
-- name: 2nd conf
-  hosts: portainer
-  become: yes
-  vars_files:
-    - vars/variables.yml
-  gather_facts: yes
-  roles:
     - portainer
+

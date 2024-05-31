@@ -1,7 +1,7 @@
 resource "proxmox_vm_qemu" "efe" {
-  count                   = 3
+  count                   = 1
   name                    = "efe-${count.index + 1}"
-  vmid                    = "10${count.index + 1}"
+  vmid                    = "10${count.index + 2}"
   target_node             = "efe"
   clone                   = "ubuntu-server"
   cores                   = 1
